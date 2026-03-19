@@ -756,6 +756,230 @@
     color: var(--blue);
   }
 
+  /* ---- TOGGLE STATUT ---- */
+  .statut-toggle {
+    display: flex;
+    gap: 8px;
+  }
+
+  .statut-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--gray-200);
+    background: var(--gray-50);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .statut-btn:hover { border-color: var(--gray-300); }
+
+  .statut-btn.active[id="btn-attente"] {
+    background: #f8fafc;
+    border-color: var(--gray-400, #94a3b8);
+    color: var(--gray-700);
+  }
+
+  .statut-btn.active[id="btn-confirme"] {
+    background: var(--green-light);
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .btn-confirm {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--green-light);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--green);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .btn-confirm:hover { background: #a7f3d0; }
+
+  /* ---- CALENDRIER POPUP ---- */
+  .cal-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .cal-icon-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gray-200);
+    background: var(--white);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    color: var(--gray-700);
+    transition: all 0.15s;
+  }
+
+  .cal-icon-btn:hover {
+    border-color: var(--navy);
+    background: var(--gray-50);
+  }
+
+  .cal-popup {
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 16px;
+    width: 280px;
+    z-index: 500;
+    animation: calIn 0.15s ease;
+  }
+
+  .cal-popup.open { display: block; }
+
+  @keyframes calIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  .cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .cal-month-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .cal-nav {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    border: none;
+    background: var(--gray-100);
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+  }
+
+  .cal-nav:hover { background: var(--gray-200); }
+
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+  }
+
+  .cal-day-name {
+    text-align: center;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    padding: 4px 0 6px;
+  }
+
+  .cal-day {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 6px 2px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--navy);
+    transition: all 0.1s;
+    line-height: 1;
+  }
+
+  .cal-day:hover { background: var(--blue-light); color: var(--blue); }
+
+  .cal-day.today {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .cal-day.selected {
+    background: var(--blue);
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .cal-day.in-week {
+    background: var(--blue-light);
+    color: var(--blue);
+  }
+
+  .cal-day.other-month { color: var(--gray-300); }
+  .cal-day.empty { cursor: default; }
+  .cal-day.empty:hover { background: transparent; }
+
+  .cal-week-row {
+    display: contents;
+  }
+
+  /* ---- STATUT TOGGLE ---- */
+  .statut-toggle {
+    display: flex;
+    gap: 8px;
+  }
+
+  .statut-btn {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--gray-200);
+    background: var(--gray-50);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .statut-btn:hover { border-color: var(--gray-300); background: var(--gray-100); }
+
+  .statut-btn.active.pending {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    color: #475569;
+  }
+
+  .statut-btn.active.confirmed {
+    background: var(--green-light);
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .btn-confirm {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--green-light);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--green);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .btn-confirm:hover { background: #a7f3d0; }
+
   /* ---- SCROLLBAR ---- */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
@@ -876,6 +1100,17 @@
         <button class="date-nav-btn" onclick="navBack()">‹</button>
         <span class="date-label" id="nav-label"></span>
         <button class="date-nav-btn" onclick="navForward()">›</button>
+        <div class="cal-wrapper">
+          <button class="cal-icon-btn" onclick="toggleCal(event)" title="Choisir une date">📅</button>
+          <div class="cal-popup" id="cal-popup">
+            <div class="cal-header">
+              <button class="cal-nav" onclick="calNavMonth(-1)">‹</button>
+              <span class="cal-month-label" id="cal-month-label"></span>
+              <button class="cal-nav" onclick="calNavMonth(1)">›</button>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+          </div>
+        </div>
         <button class="today-btn" onclick="goToday()">Aujourd'hui</button>
       </div>
 
@@ -917,6 +1152,13 @@
         <label>Motif de consultation</label>
         <textarea id="f-motif" placeholder="Ex: Consultation générale, suivi, renouvellement ordonnance..."></textarea>
       </div>
+      <div class="full">
+        <label>Statut du rendez-vous</label>
+        <div class="statut-toggle">
+          <button type="button" class="statut-btn active pending" id="btn-attente" onclick="setStatut('pending')">⏳ En attente</button>
+          <button type="button" class="statut-btn confirmed" id="btn-confirme" onclick="setStatut('confirmed')">✓ Confirmé</button>
+        </div>
+      </div>
     </div>
     <div class="modal-actions">
       <button class="btn-secondary" onclick="closeModals()">Annuler</button>
@@ -935,6 +1177,7 @@
     <div id="detail-content"></div>
     <div class="modal-actions">
       <button class="btn-secondary" onclick="closeModals()">Fermer</button>
+      <button class="btn-confirm" id="confirm-btn" onclick="confirmRdv()" style="display:none;">✓ Confirmer le RDV</button>
       <button class="btn-danger" id="cancel-btn" onclick="cancelRdv()">Annuler ce RDV</button>
     </div>
   </div>
@@ -1151,7 +1394,11 @@ function renderPlanning() {
         const [sh, sm] = r.debut.split(':').map(Number);
         const [eh, em] = r.fin.split(':').map(Number);
         const dur = ((eh * 60 + em) - (sh * 60 + sm)) / 60 * 60;
-        html += `<div class="rdv-block" style="top:${top}px; height:${Math.max(dur - 4, 20)}px; background:${doc.bg}; border-left-color:${doc.color}; color:${doc.color};" onclick="event.stopPropagation(); openDetail('${r.id}')">
+        const isPending = r.status === 'pending';
+        const bgColor = isPending ? '#f1f5f9' : '#dcfce7';
+        const borderColor = isPending ? '#94a3b8' : '#16a34a';
+        const textColor = isPending ? '#475569' : '#15803d';
+        html += `<div class="rdv-block" style="top:${top}px; height:${Math.max(dur - 4, 20)}px; background:${bgColor}; border-left-color:${borderColor}; color:${textColor};" onclick="event.stopPropagation(); openDetail('${r.id}')">
           <div class="rdv-name">${r.nom}</div>
           <div class="rdv-time">${r.debut} – ${r.fin}</div>
           <div class="rdv-motif">${r.motif || ''}</div>
@@ -1184,7 +1431,11 @@ function renderPlanning() {
       const [sh, sm] = r.debut.split(':').map(Number);
       const [eh, em] = r.fin.split(':').map(Number);
       const dur = ((eh * 60 + em) - (sh * 60 + sm)) / 60 * 60;
-      html += `<div class="rdv-block" style="top:${top}px; height:${Math.max(dur - 4, 28)}px; background:${doc.bg}; border-left-color:${doc.color}; color:${doc.color};" onclick="event.stopPropagation(); openDetail('${r.id}')">
+      const isPending = r.status === 'pending';
+      const bgColor = isPending ? '#f1f5f9' : '#dcfce7';
+      const borderColor = isPending ? '#94a3b8' : '#16a34a';
+      const textColor = isPending ? '#475569' : '#15803d';
+      html += `<div class="rdv-block" style="top:${top}px; height:${Math.max(dur - 4, 28)}px; background:${bgColor}; border-left-color:${borderColor}; color:${textColor};" onclick="event.stopPropagation(); openDetail('${r.id}')">
         <div class="rdv-name">${r.nom}</div>
         <div class="rdv-time">${r.debut} – ${r.fin}</div>
         <div class="rdv-motif">${r.motif || ''}</div>
@@ -1209,7 +1460,23 @@ function openAddModal() {
   if (!document.getElementById('f-date').value) {
     document.getElementById('f-date').value = currentDate.toISOString().slice(0, 10);
   }
+  setStatut('pending');
   document.getElementById('add-modal').classList.add('open');
+}
+
+let currentStatut = 'pending';
+
+function setStatut(val) {
+  currentStatut = val;
+  const btnAttente = document.getElementById('btn-attente');
+  const btnConfirme = document.getElementById('btn-confirme');
+  btnAttente.classList.remove('active');
+  btnConfirme.classList.remove('active');
+  if (val === 'pending') {
+    btnAttente.classList.add('active');
+  } else {
+    btnConfirme.classList.add('active');
+  }
 }
 
 function closeModals() {
@@ -1221,6 +1488,7 @@ function closeModals() {
   document.getElementById('f-debut').value = '';
   document.getElementById('f-fin').value = '';
   document.getElementById('f-motif').value = '';
+  currentStatut = 'pending';
   editingRdvId = null;
 }
 
@@ -1241,7 +1509,7 @@ function saveRdv() {
     id: 'rdv_' + Date.now(),
     doctorId: currentDoctorId,
     nom, tel, date, debut, fin, motif,
-    status: 'confirmed',
+    status: currentStatut,
     createdAt: new Date().toISOString()
   };
 
@@ -1258,7 +1526,9 @@ function openDetail(id) {
 
   const statusLabel = r.status === 'cancelled'
     ? '<span class="status-badge status-cancelled">Annulé</span>'
-    : '<span class="status-badge status-confirmed">Confirmé</span>';
+    : r.status === 'pending'
+      ? '<span class="status-badge" style="background:#f1f5f9;color:#475569;">⏳ En attente</span>'
+      : '<span class="status-badge status-confirmed">✓ Confirmé</span>';
 
   document.getElementById('detail-content').innerHTML = `
     <div class="rdv-detail-row"><div class="rdv-detail-label">Patient</div><div class="rdv-detail-value">${r.nom}</div></div>
@@ -1269,8 +1539,20 @@ function openDetail(id) {
     <div class="rdv-detail-row" style="border:none;"><div class="rdv-detail-label">Statut</div><div class="rdv-detail-value">${statusLabel}</div></div>
   `;
 
-  document.getElementById('cancel-btn').style.display = r.status === 'cancelled' ? 'none' : 'block';
+  const isCancelled = r.status === 'cancelled';
+  const isPending = r.status === 'pending';
+  document.getElementById('confirm-btn').style.display = isPending ? 'block' : 'none';
+  document.getElementById('cancel-btn').style.display = isCancelled ? 'none' : 'block';
   document.getElementById('detail-modal').classList.add('open');
+}
+
+function confirmRdv() {
+  if (!editingRdvId) return;
+  const rdv = rdvs.find(r => r.id === editingRdvId);
+  if (rdv) rdv.status = 'confirmed';
+  saveData();
+  closeModals();
+  renderPlanning();
 }
 
 function cancelRdv() {
@@ -1280,6 +1562,92 @@ function cancelRdv() {
   if (rdv) rdv.status = 'cancelled';
   saveData();
   closeModals();
+  renderPlanning();
+}
+
+// ---- CALENDRIER POPUP ----
+let calViewDate = new Date();
+
+function toggleCal(e) {
+  e.stopPropagation();
+  const popup = document.getElementById('cal-popup');
+  const isOpen = popup.classList.contains('open');
+  if (isOpen) {
+    popup.classList.remove('open');
+  } else {
+    calViewDate = new Date(currentDate);
+    renderCal();
+    popup.classList.add('open');
+  }
+}
+
+document.addEventListener('click', function(e) {
+  const popup = document.getElementById('cal-popup');
+  if (popup && !popup.closest('.cal-wrapper').contains(e.target)) {
+    popup.classList.remove('open');
+  }
+});
+
+function calNavMonth(dir) {
+  calViewDate.setMonth(calViewDate.getMonth() + dir);
+  renderCal();
+}
+
+function renderCal() {
+  const MOIS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  const JOURS = ['Lu','Ma','Me','Je','Ve','Sa','Di'];
+
+  const y = calViewDate.getFullYear();
+  const m = calViewDate.getMonth();
+  document.getElementById('cal-month-label').textContent = MOIS[m] + ' ' + y;
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  const selDate = new Date(currentDate); selDate.setHours(0,0,0,0);
+  const wsStart = getWeekStart(selDate);
+  const wsEnd = new Date(wsStart); wsEnd.setDate(wsEnd.getDate() + 4);
+
+  let html = '';
+  JOURS.forEach(j => { html += `<div class="cal-day-name">${j}</div>`; });
+
+  const firstDay = new Date(y, m, 1);
+  let startDow = firstDay.getDay();
+  startDow = (startDow === 0) ? 6 : startDow - 1;
+
+  const daysInMonth = new Date(y, m + 1, 0).getDate();
+  const prevDays = new Date(y, m, 0).getDate();
+
+  for (let i = 0; i < startDow; i++) {
+    html += `<div class="cal-day other-month empty">${prevDays - startDow + 1 + i}</div>`;
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const thisDate = new Date(y, m, d);
+    thisDate.setHours(0,0,0,0);
+    const isToday = thisDate.getTime() === today.getTime();
+    const isSel = thisDate.getTime() === selDate.getTime();
+    const inWeek = currentView === 'week' && thisDate >= wsStart && thisDate <= wsEnd;
+
+    let cls = 'cal-day';
+    if (isToday) cls += ' today';
+    else if (isSel) cls += ' selected';
+    else if (inWeek) cls += ' in-week';
+
+    const dateStr = thisDate.toISOString().slice(0,10);
+    html += `<div class="${cls}" onclick="calSelectDate('${dateStr}')">${d}</div>`;
+  }
+
+  const total = startDow + daysInMonth;
+  const remaining = (7 - (total % 7)) % 7;
+  for (let i = 1; i <= remaining; i++) {
+    html += `<div class="cal-day other-month empty">${i}</div>`;
+  }
+
+  document.getElementById('cal-grid').innerHTML = html;
+}
+
+function calSelectDate(dateStr) {
+  currentDate = new Date(dateStr + 'T12:00:00');
+  document.getElementById('cal-popup').classList.remove('open');
   renderPlanning();
 }
 </script>
